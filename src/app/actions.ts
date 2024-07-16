@@ -13,12 +13,15 @@ export async function createBlock(formData: FormData) {
   redirect(`/blocks/${newBlock.id}`);
 }
 
-// async function deleteBlock(formData: FormData) {
-//   const title = formData.get("title") as string;
-//   const code = formData.get("code") as string;
-// await db.block.delete({ data: { title, code } });
-//   redirect("/blocks");
-// }
+export async function deleteBlock(formData: FormData) {
+  const id = Number(formData.get("id"));
+
+  await db.block.delete({
+    where: { id },
+  });
+
+  redirect('/');
+}
 
 export async function editBlock(formData: FormData) {
   const id = Number(formData.get("id"));
