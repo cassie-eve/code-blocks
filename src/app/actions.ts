@@ -20,7 +20,8 @@ export async function createBlock(formData: FormData) {
 //   redirect("/blocks");
 // }
 
-export async function editBlock(id: number, formData: FormData) {
+export async function editBlock(formData: FormData) {
+  const id = Number(formData.get("id"));
   const title = formData.get("title") as string;
   const code = formData.get("code") as string;
 
