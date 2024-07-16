@@ -22,9 +22,11 @@ export default async function BlockPage({ params }: { params: { id: string } }) 
               Edit
             </button>
           </Link>
-          <button className="rounded p-2 bg-red-600 hover:bg-red-700 text-white">
-            Delete
-          </button>
+          <Link href={`/blocks/delete/${block.id}`}>
+            <button className="rounded p-2 bg-red-600 hover:bg-red-700 text-white">
+              Delete
+            </button>
+          </Link>
           <button className="rounded p-2 bg-green-600 hover:bg-green-700 text-white">
             Copy
           </button>

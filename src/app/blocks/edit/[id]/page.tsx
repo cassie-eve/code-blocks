@@ -1,4 +1,3 @@
-// app/blocks/edit/[id]/page.tsx
 import { editBlock } from "@/app/actions";
 import { db } from "@/db";
 
