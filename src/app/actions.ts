@@ -1,6 +1,7 @@
 "use server";
 import { db } from "@/db";
 import { redirect } from "next/navigation";
+import { cookies } from 'next/headers';
 
 export async function createBlock(formData: FormData) {
   const title = formData.get("title") as string;
@@ -45,7 +46,7 @@ export async function login(formData: FormData) {
           password: formData.get("password") as string
         }
       })
-      // cookies().set("user_id", String(user.id));
+      cookies().set("user_id", String(user.id));
     } catch (error) {
       console.log("User not found)")
       redirect("/login?error=USER_NOT_FOUND");

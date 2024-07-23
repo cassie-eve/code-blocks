@@ -3,8 +3,12 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { login } from "@/app/actions";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Component() {
+export default function Login({ searchParams }: any) {
+  const user = cookies().get("user_id")?.value;
+  if (user) redirect("/blocks");
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="max-w-sm w-full">

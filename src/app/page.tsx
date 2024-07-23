@@ -1,8 +1,15 @@
 import { db } from "@/db";
 import Link from "next/link";
+import { cookies } from 'next/headers';
+import { redirect } from "next/navigation";
 
 export default async function BlocksPage() {
-  const blocks = await db.block.findMany();
+  const userId = cookies().get("user_id")?.value;
+  if (!userId) redirect("/login");
+
+  const blocks = await db.block.findMany({
+    where: { userId: Number(userId)},
+  });
   const renderedBlocks = blocks.map((block) => {
     return (
       <Link
