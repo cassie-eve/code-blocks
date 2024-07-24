@@ -27,9 +27,6 @@ export default async function BlockPage({ params }: { params: { id: string } }) 
               Delete
             </button>
           </Link>
-          <button className="rounded p-2 bg-green-600 hover:bg-green-700 text-white">
-            Copy
-          </button>
         </div>
       </div>
       <div className="mt-4">
