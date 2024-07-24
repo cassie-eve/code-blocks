@@ -6,7 +6,7 @@ import { login } from "@/app/actions";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export default function Login({ searchParams }: any) {
+export default function Login() {
   const user = cookies().get("user_id")?.value;
   if (user) redirect("/blocks");
   return (
